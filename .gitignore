@@ -17,5 +17,6 @@ site/
 # Accept these files
 ###############################################################################
 
+!after/plugin
 !.editorconfig
 !.gitignore
