@@ -3,24 +3,36 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- Navigator and finder
+	-----------------------------------------------------------------------------
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		'nvim-telescope/telescope.nvim', tag = '0l1.0',
+		requires = { {'nvim-lua/plenary.nvim'} },
+	}
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons',
+		},
 	}
 
+	-- Theme
+	-----------------------------------------------------------------------------
 	use {
 		'rose-pine/neovim',
 		as = 'rose-pine',
 		config = function()
 			vim.cmd('colorscheme rose-pine')
-		end
+		end,
 	}
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		{ run = ":TSUpdate" }
+		{ run = ":TSUpdate" },
 	}
 
+	-- LSP, autocompletion and snippets
+	-----------------------------------------------------------------------------
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		requires = {
@@ -41,5 +53,12 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 			{'rafamadriz/friendly-snippets'},
 		}
+	}
+
+	-- Git
+	-----------------------------------------------------------------------------
+	use {
+		'tanvirtin/vgit.nvim',
+		config = function () require('vgit').setup {} end,
 	}
 end)
