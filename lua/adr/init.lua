@@ -1,2 +1,5 @@
-require("adr.remap")
 require("adr.packer")
+require("adr.remap")
+require("adr.keymappings")
+require("adr.options")
+require("adr.windows")
