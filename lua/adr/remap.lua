@@ -6,6 +6,11 @@ vim.g.hardtime_default_on = 1
 vim.g.hardtime_showmsg = 1
 vim.g.hardtime_maxcount = 2
 
--- DRY - takac/vim-hardtime
+-- nathanaelkane/vim-indent-guides
 --------------------------------------------------------------------------------
 vim.g.indent_guides_enable_on_vim_startup = 1
+
+-- hashivim/vim-terraform
+--------------------------------------------------------------------------------
+vim.g.terraform_align = 1
+vim.g.terraform_fmt_on_save = 1

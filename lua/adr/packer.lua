@@ -76,10 +76,14 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
-    end
+    end,
   }
 
   -- Miscelanious
   -----------------------------------------------------------------------------
   use 'takac/vim-hardtime'
+
+  -- Language specific plugins
+  -----------------------------------------------------------------------------
+  use 'hashivim/vim-terraform'
 end)
