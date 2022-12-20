@@ -25,10 +25,9 @@ return require('packer').startup(function(use)
 			vim.cmd('colorscheme rose-pine')
 		end,
 	}
-
 	use {
-		'nvim-treesitter/nvim-treesitter',
-		{ run = ":TSUpdate" },
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
 
 	-- LSP, autocompletion and snippets
@@ -54,6 +53,11 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	}
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		{ run = ":TSUpdate" },
+	}
+
 
 	-- Git
 	-----------------------------------------------------------------------------
