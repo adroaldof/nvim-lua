@@ -9,6 +9,11 @@ vim.g.hardtime_maxcount = 2
 -- nathanaelkane/vim-indent-guides
 --------------------------------------------------------------------------------
 vim.g.indent_guides_enable_on_vim_startup = 1
+vim.g.indent_guides_auto_colors = 0
+vim.cmd [[
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212530 ctermbg=3
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#253635 ctermbg=4
+]]
 
 -- hashivim/vim-terraform
 --------------------------------------------------------------------------------
