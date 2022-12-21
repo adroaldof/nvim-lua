@@ -1,1 +1,2 @@
 require("adr")
+require("fun")
