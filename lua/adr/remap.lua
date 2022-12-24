@@ -19,3 +19,8 @@ vim.cmd [[
 --------------------------------------------------------------------------------
 vim.g.terraform_align = 1
 vim.g.terraform_fmt_on_save = 1
+
+-- Yggdroot/indentLine
+--------------------------------------------------------------------------------
+vim.g.indentLine_color_term = 239
+vim.g.indentLine_char = '▏'

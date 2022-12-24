@@ -68,7 +68,7 @@ return require('packer').startup(function(use)
 
   -- Editor helpers
   -----------------------------------------------------------------------------
-  use 'nathanaelkane/vim-indent-guides'
+  use 'Yggdroot/indentLine'
   use 'editorconfig/editorconfig-vim'
   use 'windwp/nvim-ts-autotag'
   use 'Townk/vim-autoclose'
