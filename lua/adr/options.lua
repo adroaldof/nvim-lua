@@ -32,10 +32,11 @@ vim.opt.cmdheight = 2                        	-- Enable cursor line
 vim.opt.conceallevel = 0                     	-- enable quotes on markdown
 vim.opt.pumheight = 10                       	-- pop up menu height
 vim.opt.updatetime = 80                      	-- faster completion (4000ms default)
+vim.opt.conceallevel = 0                      -- disable the "conceal" syntax to .md and .json files
 
 -------------------------------------------------------------------------------
 -- Highlight
---0-----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 vim.opt.hlsearch = true                      	-- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                    	-- ignore case in search patterns
 vim.opt.smartcase = true                     	-- smart case
