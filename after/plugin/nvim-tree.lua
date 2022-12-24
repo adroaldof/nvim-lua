@@ -16,6 +16,7 @@ require "nvim-tree".setup {
 		},
 	},
 	renderer = {
+    highlight_opened_files = "all",
 		group_empty = true,
 		icons = {
 			glyphs = {
@@ -26,8 +27,12 @@ require "nvim-tree".setup {
 		}
 	},
 	filters = {
-		dotfiles = true,
-	},
+		dotfiles = false,
+  },
+  git = {
+    ignore = false,
+    enable = true,
+  }
 }
 
 vim.keymap.set('n', '<C-b>', ":NvimTreeToggle<CR>")
