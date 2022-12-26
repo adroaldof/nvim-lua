@@ -19,6 +19,11 @@ require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
 }
 
 -- Closing a tag causes built-in LSP to update diagnostics incorrectly
