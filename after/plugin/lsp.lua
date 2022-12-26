@@ -1,11 +1,5 @@
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
-require('mason.settings').set({
-  ui = {
-    border = 'rounded'
-  }
-})
-
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
