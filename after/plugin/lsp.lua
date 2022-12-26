@@ -1,3 +1,5 @@
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 require('mason.settings').set({
   ui = {
     border = 'rounded'
@@ -12,7 +14,6 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'sumneko_lua',
-	'rust_analyzer',
 	'html',
 })
 
@@ -36,6 +37,14 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
 })
+
+local cmp_config = lsp.defaults.cmp_config({
+  window = {
+    completion = cmp.config.window.bordered()
+  }
+})
+
+cmp.setup(cmp_config)
 
 -- disable completion with tab
 -- this helps with copilot setup
