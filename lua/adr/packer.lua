@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'Townk/vim-autoclose'
   use 'p00f/nvim-ts-rainbow'
+  use 'windwp/nvim-autopairs'
   use {
     'numToStr/Comment.nvim',
     config = function()
