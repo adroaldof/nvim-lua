@@ -6,25 +6,19 @@ return require('packer').startup(function(use)
   -- Navigator and finder
   -----------------------------------------------------------------------------
   use {
-    'nvim-telescope/telescope.nvim', tag = '0l1.0',
+    'nvim-telescope/telescope.nvim',
+    tag = '0l1.0',
     requires = { {'nvim-lua/plenary.nvim'} },
   }
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
+    requires = { {'nvim-tree/nvim-web-devicons'} },
   }
 
-  -- Theme
+  -- Theme and Status line
   -----------------------------------------------------------------------------
-  use {
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end,
-  }
+  use { 'navarasu/onedark.nvim', as = 'onedark' }
+  use { 'rose-pine/neovim', as = 'rose-pine' }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
