@@ -58,7 +58,6 @@ return require('packer').startup(function(use)
     run = ":TSUpdate",
   }
 
-
   -- Git
   -----------------------------------------------------------------------------
   use {
@@ -68,7 +67,7 @@ return require('packer').startup(function(use)
 
   -- Editor helpers
   -----------------------------------------------------------------------------
-  use 'Yggdroot/indentLine'
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'editorconfig/editorconfig-vim'
   use 'windwp/nvim-ts-autotag'
   use 'Townk/vim-autoclose'
