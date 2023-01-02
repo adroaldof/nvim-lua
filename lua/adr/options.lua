@@ -21,6 +21,12 @@ vim.opt.writebackup = false -- Disable write backup file
 vim.opt.undofile = true -- Enable persistent undo
 
 -------------------------------------------------------------------------------
+-- Split Windows
+-------------------------------------------------------------------------------
+vim.opt.splitright = true -- Split window to the right
+vim.opt.splitbelow = true -- Split window to the below
+
+-------------------------------------------------------------------------------
 -- Cursor
 -------------------------------------------------------------------------------
 vim.opt.cursorline = true -- Enable cursor line
