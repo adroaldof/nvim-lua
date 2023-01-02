@@ -1,79 +1,78 @@
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'sumneko_lua',
-	'html',
+	"tsserver",
+	"eslint",
+	"sumneko_lua",
+	"html",
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure("sumneko_lua", {
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { 'vim' }
+				globals = { "vim" },
 			},
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-		}
-	}
+			workspace = { checkThirdParty = false },
+			telemetry = { enable = false },
+		},
+	},
 })
 
-lsp.configure('tsserver', {})
+lsp.configure("tsserver", {})
 
-
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp = require("cmp")
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+	["<C-y>"] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
 })
 
 local cmp_config = lsp.defaults.cmp_config({
-  window = {
-    completion = cmp.config.window.bordered()
-  }
+	window = {
+		completion = cmp.config.window.bordered(),
+	},
 })
 
 cmp.setup(cmp_config)
 
 -- disable completion with tab
 -- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+cmp_mappings["<Tab>"] = nil
+cmp_mappings["<S-Tab>"] = nil
 
 lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
+	mapping = cmp_mappings,
 })
 
 lsp.set_preferences({
-  suggest_lsp_servers = true,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = true,
-  configure_diagnostics = true,
-  cmp_capabilities = true,
-  manage_nvim_cmp = true,
-  call_servers = 'local',
+	suggest_lsp_servers = true,
+	setup_servers_on_start = true,
+	set_lsp_keymaps = true,
+	configure_diagnostics = true,
+	cmp_capabilities = true,
+	manage_nvim_cmp = true,
+	call_servers = "local",
 	sign_icons = {
-		error = '✘',
-		warn = '▲',
-		hint = '⚑',
-		info = ''
-	}
+		error = "✘",
+		warn = "▲",
+		hint = "⚑",
+		info = "",
+	},
 })
 
 lsp.on_attach(function(client, bufnr)
-	local opts = {buffer = bufnr, remap = false}
+	local opts = { buffer = bufnr, remap = false }
 
 	if client.name == "eslint" then
-		vim.cmd.LspStop('eslint')
+		vim.cmd.LspStop("eslint")
 		return
 	end
 

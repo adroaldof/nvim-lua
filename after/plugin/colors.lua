@@ -9,20 +9,20 @@ end
 
 -- Theme configurations
 -----------------------------------------------------------------------------
-local theme = require('onedark')
+local theme = require("onedark")
 
-theme.setup {
-  style = 'deep',
-  transparent = true,
-}
+theme.setup({
+	style = "deep",
+	transparent = true,
+})
 theme.load()
 
 -- Status line configurations
 -----------------------------------------------------------------------------
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-  },
-}
+require("lualine").setup({
+	options = {
+		icons_enabled = true,
+	},
+})
 
 CustomizeColorScheme("onedark")

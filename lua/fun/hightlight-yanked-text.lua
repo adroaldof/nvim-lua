@@ -28,4 +28,3 @@ vim.cmd([[
     endwhile
   endfunction
 ]])
-

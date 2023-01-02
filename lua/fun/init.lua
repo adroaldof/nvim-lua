@@ -1,1 +1,1 @@
-require('fun.hightlight-yanked-text')
+require("fun.hightlight-yanked-text")

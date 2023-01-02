@@ -6,7 +6,6 @@ vim.g.hardtime_default_on = 1
 vim.g.hardtime_showmsg = 1
 vim.g.hardtime_maxcount = 2
 
-
 -- hashivim/vim-terraform
 --------------------------------------------------------------------------------
 vim.g.terraform_align = 1

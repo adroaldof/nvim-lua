@@ -2,13 +2,13 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require"nvim-tree".setup {
+require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	view = {
 		number = true,
 		relativenumber = true,
 		adaptive_size = true,
-		signcolumn = 'yes',
+		signcolumn = "yes",
 		mappings = {
 			list = {
 				{ key = "u", action = "dir_up" },
@@ -16,7 +16,7 @@ require"nvim-tree".setup {
 		},
 	},
 	renderer = {
-    highlight_opened_files = "all",
+		highlight_opened_files = "all",
 		group_empty = true,
 		icons = {
 			glyphs = {
@@ -24,15 +24,15 @@ require"nvim-tree".setup {
 					unstaged = "פֿ",
 				},
 			},
-		}
+		},
 	},
 	filters = {
 		dotfiles = false,
-  },
-  git = {
-    ignore = false,
-    enable = true,
-  }
-}
+	},
+	git = {
+		ignore = false,
+		enable = true,
+	},
+})
 
-vim.keymap.set('n', '<C-b>', ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
