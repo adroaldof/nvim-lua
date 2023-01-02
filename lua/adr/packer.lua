@@ -33,7 +33,6 @@ return require("packer").startup(function(use)
 	-- Theme and Status line
 	-----------------------------------------------------------------------------
 	use({ "navarasu/onedark.nvim", as = "onedark" })
-	use({ "rose-pine/neovim", as = "rose-pine" })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
