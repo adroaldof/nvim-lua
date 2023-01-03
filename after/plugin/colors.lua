@@ -11,7 +11,7 @@ end
 -----------------------------------------------------------------------------
 local onedark_status, onedark = pcall(require, "onedark")
 if not onedark_status then
-	print("Install `navarasu/onedark.nvim` plugin at your plugin managment")
+	print("Please, ensure install of `navarasu/onedark.nvim` plugin")
 	return
 end
 
@@ -26,7 +26,7 @@ onedark.load()
 -----------------------------------------------------------------------------
 local lualine_status, lualine = pcall(require, "lualine")
 if not lualine_status then
-	print("Install `nvim-lualine/lualine.nvim` plugin at your plugin managment")
+	print("Please, enstall ensure install of `nvim-lualine/lualine.nvim` plugin")
 	return
 end
 

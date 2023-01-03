@@ -82,6 +82,7 @@ return require("packer").startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 	use("windwp/nvim-autopairs")
 	use("mhartington/formatter.nvim")
+	use("onsails/lspkind.nvim")
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
