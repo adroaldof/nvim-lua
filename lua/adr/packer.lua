@@ -43,7 +43,7 @@ return packer.startup(function(use)
 
     -- Theme, Status line and visuals
     -----------------------------------------------------------------------------
-    use({ "navarasu/onedark.nvim", as = "onedark" }) -- theme
+    use({ "lunarvim/darkplus.nvim", as = "darkplus" }) -- theme
     use("nvim-lua/popup.nvim") -- implementation of pupup API
     use("nvim-lualine/lualine.nvim") -- status line
 

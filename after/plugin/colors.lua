@@ -1,25 +1,18 @@
-function CustomizeColorScheme(colorScheme)
-	local color = colorScheme or "onedark"
-
-	vim.cmd.colorscheme(color)
-
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
 -- Theme configurations
 -----------------------------------------------------------------------------
-local onedark_status, onedark = pcall(require, "onedark")
-if not onedark_status then
-	print("Please, ensure install of `navarasu/onedark.nvim` plugin")
-	return
+local darkplus_status, _darkplus = pcall(require, "darkplus")
+if not darkplus_status then
+    print("Please, ensure install of `navarasu/darkplus.nvim` plugin")
+    return
 end
 
-onedark.setup({
-	style = "deep",
-	transparent = true,
-})
+function CustomizeColorScheme(colorScheme)
+    local color = colorScheme or "darkplus"
 
-onedark.load()
+    vim.cmd.colorscheme(color)
+
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 CustomizeColorScheme()
