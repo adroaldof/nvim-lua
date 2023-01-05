@@ -1,104 +1,99 @@
+local packer_status, packer = pcall(require, "packer")
+if not packer_status then
+    print("Please, ensure install of `wbthomason/packer.nvim` plugin manager is installed")
+    return
+end
+
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local is_bootstrap = false
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	is_bootstrap = true
-	vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	vim.cmd([[packadd packer.nvim]])
+    is_bootstrap = true
+    vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
 end
 
-if is_bootstrap then
-	print("================================================================================")
-	print("= Please wait!")
-	print("= Plugins are being prepared to be installed")
-	print("================================================================================")
-	return
-end
+-- vim.cmd([[
+--     augroup packer_config
+--         autocmd!
+--         autocmd BufWritePost packer.lua source <afile> | PackerInstall
+--     augroup end
+-- ]])
 
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+packer.init({
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
+})
 
-	-- Navigator and finder
-	-----------------------------------------------------------------------------
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = { { "nvim-tree/nvim-web-devicons" } },
-	})
+return packer.startup(function(use)
+    use("wbthomason/packer.nvim")
 
-	-- Theme and Status line
-	-----------------------------------------------------------------------------
-	use({ "navarasu/onedark.nvim", as = "onedark" })
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+    -- Common optional plugins
+    -----------------------------------------------------------------------------
+    use("nvim-lua/plenary.nvim") -- useful Lua functions
+    use("nvim-tree/nvim-web-devicons") -- icons
 
-	-- LSP, autocompletion and snippets
-	-----------------------------------------------------------------------------
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		requires = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
-		},
-	})
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+    -- Navigator and finder
+    -----------------------------------------------------------------------------
+    use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" }) -- fuzzy finder
+    use("nvim-tree/nvim-tree.lua") -- file navigation
 
-	-- Git
-	-----------------------------------------------------------------------------
-	use({
-		"tanvirtin/vgit.nvim",
-		config = function()
-			require("vgit").setup({})
-		end,
-	})
+    -- Theme, Status line and visuals
+    -----------------------------------------------------------------------------
+    use({ "navarasu/onedark.nvim", as = "onedark" }) -- theme
+    use("nvim-lua/popup.nvim") -- implementation of pupup API
+    use("nvim-lualine/lualine.nvim") -- status line
 
-	-- Editor helpers
-	-----------------------------------------------------------------------------
-	use("lukas-reineke/indent-blankline.nvim")
-	use("editorconfig/editorconfig-vim")
-	use("windwp/nvim-ts-autotag")
-	use("Townk/vim-autoclose")
-	use("p00f/nvim-ts-rainbow")
-	use("windwp/nvim-autopairs")
-	use("mhartington/formatter.nvim")
-	use("onsails/lspkind.nvim")
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
+    -- Treesitter
+    -----------------------------------------------------------------------------
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    -- Accesories
+    use("onsails/lspkind.nvim") -- vscode like pictograms
+    use("windwp/nvim-ts-autotag") -- use treesitter autoclose and autorename
+    use("p00f/nvim-ts-rainbow") -- colour match characters
 
-	-- Miscelanious
-	-----------------------------------------------------------------------------
-	use("takac/vim-hardtime")
+    -- LSP, autocompletion and snippets
+    -----------------------------------------------------------------------------
+    -- LP Support
+    use("neovim/nvim-lspconfig")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    -- Autocompletion
+    use("hrsh7th/nvim-cmp") -- enable completions
+    use("hrsh7th/cmp-buffer") -- source for buffer words
+    use("hrsh7th/cmp-path") -- source for path words
+    use("saadparwaiz1/cmp_luasnip") -- source luasnip words
+    use("hrsh7th/cmp-nvim-lsp") -- source neovim built-in LSP
+    use("hrsh7th/cmp-nvim-lua") -- source neovim Lua runtime API
+    -- Snippets
+    use("L3MON4D3/LuaSnip") -- snippet engine
+    use("rafamadriz/friendly-snippets") -- snippets repository
 
-	-- Language specific plugins
-	-----------------------------------------------------------------------------
-	use("hashivim/vim-terraform")
+    -- Git
+    -----------------------------------------------------------------------------
+    use("tanvirtin/vgit.nvim")
 
-	if is_bootstrap then
-		require("packer").sync()
-	end
+    -- Editor helpers
+    -----------------------------------------------------------------------------
+    use("mhartington/formatter.nvim") -- format on save
+    use("editorconfig/editorconfig-vim") -- apply editor config file to the buffer
+    use("lukas-reineke/indent-blankline.nvim") -- adds indentation guides to code blocks
+    use("windwp/nvim-autopairs") -- add matching pair
+    use("numToStr/Comment.nvim") -- toggle comments with gc
+    -- use("Townk/vim-autoclose") -- automatically closes a match character
+
+    -- Miscelanious
+    -----------------------------------------------------------------------------
+    use("takac/vim-hardtime")
+
+    -- Language specific plugins
+    -----------------------------------------------------------------------------
+    use("hashivim/vim-terraform")
+
+    if is_bootstrap then
+        require("packer").sync()
+    end
 end)
