@@ -46,6 +46,7 @@ return packer.startup(function(use)
     use({ "lunarvim/darkplus.nvim", as = "darkplus" }) -- theme
     use("nvim-lua/popup.nvim") -- implementation of pupup API
     use("nvim-lualine/lualine.nvim") -- status line
+    use("romgrk/barbar.nvim")
 
     -- Treesitter
     -----------------------------------------------------------------------------
