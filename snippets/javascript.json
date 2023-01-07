@@ -1,0 +1,70 @@
+{
+  "Print with group to console": {
+    "prefix": "clg",
+    "body": [
+      "console.group('** $1')",
+      "console.log('** $2')",
+      "console.groupEnd('** $1')"
+    ],
+    "description": "Print with group to console"
+  },
+  "Print variable to console": {
+    "prefix": "cl",
+    "body": ["console.log(`** $1`, $1);$2"],
+    "description": "Log output to console"
+  },
+  "Print info to console": {
+    "prefix": "cli",
+    "body": ["console.info(`** $1`, $1);$2"],
+    "description": "Log info to console"
+  },
+  "Print error to console": {
+    "prefix": "cle",
+    "body": ["console.error(`** $1`, $1);$2"],
+    "description": "Log error to console"
+  },
+  "Print table to console": {
+    "prefix": "clt",
+    "body": ["console.table(`** $1`, $1);$2"],
+    "description": "Log error to console"
+  },
+  "Print to console": {
+    "prefix": "log",
+    "body": ["console.log(`** $1`);"],
+    "description": "Log output to console"
+  },
+  "Print breaking log": {
+    "prefix": "cl*",
+    "body": [
+      "console.log(`*************************************************`);"
+    ],
+    "description": "Log break content to console"
+  },
+  "Print breaking message log": {
+    "prefix": "cl-",
+    "body": [
+      "console.log(`***********************`, ` $1 `, `***********************`);"
+    ],
+    "description": "Log break content with message to console"
+  },
+  "Print variable content to console": {
+    "prefix": "cls",
+    "body": ["console.log(`** $1`, JSON.stringify($1, null, 2));$2"],
+    "description": "Log variable content to console"
+  },
+  "Create new mocha describe": {
+    "prefix": "des",
+    "body": ["describe('$1', ($2) => {\n\t$3\n});"],
+    "description": "Create a new describe when using mocha"
+  },
+  "Create new mocha it": {
+    "prefix": "it",
+    "body": ["it('$1', ($2) => {\n\t$3\n});"],
+    "description": "Create a new it when using mocha"
+  },
+  "Try-Catch": {
+    "prefix": "try",
+    "body": ["try {", "\t$1", "} catch (error) {", "\t$2", "}"],
+    "description": "Create a try-catch structure"
+  }
+}
