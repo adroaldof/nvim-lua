@@ -75,7 +75,7 @@ return packer.startup(function(use)
 
     -- Git
     -----------------------------------------------------------------------------
-    use("tanvirtin/vgit.nvim")
+    use("lewis6991/gitsigns.nvim")
 
     -- Editor helpers
     -----------------------------------------------------------------------------
