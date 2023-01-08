@@ -84,6 +84,7 @@ return packer.startup(function(use)
     use("lukas-reineke/indent-blankline.nvim") -- adds indentation guides to code blocks
     use("windwp/nvim-autopairs") -- add matching pair
     use("numToStr/Comment.nvim") -- toggle comments with gc
+    use("JoosepAlviste/nvim-ts-context-commentstring") -- comment context
     -- use("Townk/vim-autoclose") -- automatically closes a match character
 
     -- Miscelanious
