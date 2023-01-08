@@ -16,8 +16,6 @@ if not lspkind_status then
     return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
-
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
