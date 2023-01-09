@@ -23,6 +23,7 @@ vim.opt.undofile = true -- Enable persistent undo
 -------------------------------------------------------------------------------
 -- Split Windows
 -------------------------------------------------------------------------------
+vim.opt.termguicolors = true
 vim.opt.splitright = true -- Split window to the right
 vim.opt.splitbelow = true -- Split window to the below
 
