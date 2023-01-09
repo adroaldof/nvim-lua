@@ -73,7 +73,7 @@ local enable_format_on_save = function(_, bufnr)
 	})
 end
 
-local formatters_to_be_disabled = { "tsserver", "sumneko_lua" }
+local formatters_to_be_disabled = { "tsserver", "sumneko_lua", "jsonls" }
 
 local has_value = function(tab, val)
 	for _, value in ipairs(tab) do
