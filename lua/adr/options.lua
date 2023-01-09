@@ -10,6 +10,8 @@ vim.opt.colorcolumn = "80,120" -- Show column for max line length
 vim.opt.signcolumn = "yes" -- Show sign column
 vim.opt.scrolloff = 4 -- Min number lines of context
 vim.opt.fileencoding = "utf-8" -- The encoding written to a file
+vim.opt.spell = true
+vim.opt.spelllang = "en"
 
 -------------------------------------------------------------------------------
 -- Turn off swap files

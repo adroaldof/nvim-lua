@@ -47,7 +47,9 @@ At first run of NeoVim you will need type the follow command to make the first p
 ```bash
 :PackerInstall
 ```
+
 Any plugin change you will need to add it to the `lua/adr/packer.lua` file and make the setup to the `after/plugin` when necessary
 
 ---
+
 Enjoy it :+1:
