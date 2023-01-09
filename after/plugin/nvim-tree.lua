@@ -30,8 +30,8 @@ require("nvim-tree").setup({
             },
             show = {
                 file = true,
-                folder = false,
-                folder_arrow = false,
+                folder = true,
+                folder_arrow = true,
                 git = true,
             },
         },
