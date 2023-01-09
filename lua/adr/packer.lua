@@ -79,7 +79,7 @@ return packer.startup(function(use)
 
     -- Editor helpers
     -----------------------------------------------------------------------------
-    use("mhartington/formatter.nvim") -- format on save
+    use("jose-elias-alvarez/null-ls.nvim") -- format and lint
     use("editorconfig/editorconfig-vim") -- apply editor config file to the buffer
     use("lukas-reineke/indent-blankline.nvim") -- adds indentation guides to code blocks
     use("windwp/nvim-autopairs") -- add matching pair

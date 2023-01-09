@@ -73,7 +73,23 @@ local enable_format_on_save = function(_, bufnr)
     })
 end
 
-local on_attach = function(_client, bufnr)
+local formatters_to_be_disabled = { "tsserver", "sumneko_lua" }
+
+local has_value = function(tab, val)
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
+local on_attach = function(client, bufnr)
+    if has_value(formatters_to_be_disabled, client.name) then
+        client.server_capabilities.documentFormattingProvider = false
+    end
+
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -100,6 +116,8 @@ local on_attach = function(_client, bufnr)
     vim.keymap.set("n", "<space>f", function()
         vim.lsp.buf.format({ async = true })
     end, bufopts)
+
+    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])
 end
 
 -- Language Specific LSP
