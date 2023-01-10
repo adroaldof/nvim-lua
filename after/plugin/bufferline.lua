@@ -23,6 +23,11 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Close buffers
+vim.keymap.set("n", "<leader>cr", "<Cmd>BufferLineCloseRight<CR>", opts)
+vim.keymap.set("n", "<leader>cl", "<Cmd>BufferLineCloseLeft<CR>", opts)
+vim.keymap.set("n", "<A-c>", "<Cmd>BufferLinePickClose<CR>", opts)
+
 -- Goto buffer in position...
 vim.keymap.set("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
 vim.keymap.set("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
