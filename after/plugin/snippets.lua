@@ -77,14 +77,14 @@ ls.add_snippets(nil, {
 })
 
 -- always moves to the next item withing the snippet
-vim.keymap.set({ "i", "s" }, "<c-k>", function()
+vim.keymap.set({ "i", "s" }, "<c-n>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
 end, { silent = true })
 
 -- always moves to the previous item withing the snippet
-vim.keymap.set({ "i", "s" }, "<c-j>", function()
+vim.keymap.set({ "i", "s" }, "<c-p>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end

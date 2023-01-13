@@ -85,6 +85,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- add matching pair
 	use("numToStr/Comment.nvim") -- toggle comments with gc
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- comment context
+	use("christoomey/vim-tmux-navigator") -- enable navigation within tmux
 
 	-- Miscelanious
 	-----------------------------------------------------------------------------
