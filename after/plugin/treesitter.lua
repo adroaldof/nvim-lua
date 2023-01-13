@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
 		"typescript",
 		"vim",
 		"yaml",
+		"terraform",
 	},
 	indent = {
 		enable = true,
