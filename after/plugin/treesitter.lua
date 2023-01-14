@@ -1,4 +1,12 @@
-require("nvim-treesitter.configs").setup({
+local is_treesitter_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not is_treesitter_ok then
+	print("Please, ensure install of `nvim-treesitter/nvim-treesitter` plugin")
+	return
+end
+
+treesitter.setup({
+	sync_install = false,
+	auto_install = true,
 	ensure_installed = {
 		"go",
 		"hcl",
