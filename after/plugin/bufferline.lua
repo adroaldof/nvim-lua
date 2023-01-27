@@ -1,20 +1,20 @@
 local bufferline_status, bufferline = pcall(require, "bufferline")
 if not bufferline_status then
-	print("Please, ensure install of `akinsho/bufferline.nvim` plugin")
-	return
+    print("Please, ensure install of `akinsho/bufferline.nvim` plugin")
+    return
 end
 
 bufferline.setup({
-	options = {
-		numbers = "both",
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-		buffer_close_icon = "",
-		modified_icon = "●",
-		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
-		diagnostics = "nvim_lsp",
-	},
+    options = {
+        numbers = "both",
+        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        buffer_close_icon = "",
+        modified_icon = "●",
+        close_icon = "",
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        diagnostics = "nvim_lsp",
+    },
 })
 
 local opts = { noremap = true, silent = true }
@@ -26,7 +26,7 @@ vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
 -- Close buffers
 vim.keymap.set("n", "<leader>cr", "<Cmd>BufferLineCloseRight<CR>", opts)
 vim.keymap.set("n", "<leader>cl", "<Cmd>BufferLineCloseLeft<CR>", opts)
-vim.keymap.set("n", "<A-c>", "<Cmd>BufferLinePickClose<CR>", opts)
+vim.keymap.set("n", "<leader>cc", "<Cmd>BufferLinePickClose<CR>", opts)
 
 -- Goto buffer in position...
 vim.keymap.set("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
