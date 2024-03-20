@@ -1,4 +1,4 @@
-local M = {
+return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -17,11 +17,3 @@ local M = {
     "saadparwaiz1/cmp_luasnip",
   },
 }
-
-function M.config()
-  local cmp = require("cmp")
-  local lspkind = require("lspkind")
-  cmp.setup({})
-end
-
-return M

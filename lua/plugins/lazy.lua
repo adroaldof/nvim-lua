@@ -42,6 +42,7 @@ return {
   "williamboman/mason.nvim",
   "jose-elias-alvarez/null-ls.nvim", -- format and lint
   "mhartington/formatter.nvim",
+  "MunifTanjim/prettier.nvim",
 
   -- Theme
   -----------------------------------------------------------------------------
