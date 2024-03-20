@@ -2,6 +2,11 @@
 -- this can be found at `:help options`
 
 -------------------------------------------------------------------------------
+-- Options
+-------------------------------------------------------------------------------
+vim.opt.modifiable = true -- allow to modify keys
+
+-------------------------------------------------------------------------------
 -- File Context
 -------------------------------------------------------------------------------
 vim.opt.number = true -- Line numbers are good
@@ -48,7 +53,7 @@ vim.opt.conceallevel = 0 -- disable the "conceal" syntax to .md and .json files
 
 -------------------------------------------------------------------------------
 -- Highlight
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.smartcase = true -- smart case

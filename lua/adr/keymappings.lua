@@ -3,10 +3,6 @@
 -------------------------------------------------------------------------------
 vim.keymap.set("n", "<Leader>ve", [[:vsplit ~/.config/nvim/init.lua<cr>]])
 vim.keymap.set("n", "<Leader>vs", [[:source ~/.config/nvim/init.lua<cr>]])
-vim.keymap.set("n", "<Leader>pi", [[:PackerInstall<cr>]])
-vim.keymap.set("n", "<Leader>pu", [[:PackerUpdate<cr>]])
-vim.keymap.set("n", "<Leader>ps", [[:PackerSync<cr>]])
-vim.keymap.set("n", "<Leader>pc", [[:PackerClean<cr>]])
 
 -------------------------------------------------------------------------------
 -- Escape when editing
@@ -49,9 +45,3 @@ vim.keymap.set("v", "p", [["_dP]])
 -------------------------------------------------------------------------------
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--------------------------------------------------------------------------------
--- nvim-tree/nvim-tree.lua
--------------------------------------------------------------------------------
-vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
