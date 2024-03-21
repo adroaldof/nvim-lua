@@ -28,6 +28,7 @@ mason_lspconfig.setup({
     "eslint",
     "html",
     "jsonls",
+    "lua_ls",
     "pylsp",
     "pyright",
     "remark_ls",

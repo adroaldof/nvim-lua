@@ -42,7 +42,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = "", Warn = "", Hint = "ﴞ", Info = "" }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -93,8 +93,8 @@ end
 
 -- Language Specific LSP
 --------------------------------------------------------------------------------
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- JS and TS
@@ -108,7 +108,7 @@ lspconfig.tsserver.setup({
 
 -- Lua
 --------------------------------------------------------------------------------
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
