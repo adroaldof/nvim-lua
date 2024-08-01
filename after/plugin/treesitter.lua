@@ -5,53 +5,59 @@ if not is_treesitter_ok then
 end
 
 treesitter.setup({
-  sync_install = false,
-  auto_install = true,
-  ensure_installed = {
-    "bash",
-    "css",
-    "dockerfile",
-    "gitignore",
-    "go",
-    "hcl",
-    "helm",
-    "html",
-    "http",
-    "javascript",
-    "json",
-    "lua",
-    "luadoc",
-    "markdown",
-    "pem",
-    "prisma",
-    "python",
-    "scss",
-    "sql",
-    "terraform",
-    "terraform",
-    "tsx",
-    "typescript",
-    "vim",
-    "yaml",
-  },
-  indent = {
-    enable = true,
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  autotag = {
-    enable = true,
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+        sync_install = false,
+        auto_install = true,
+        ensure_installed = {
+          "bash",
+          "css",
+          "dockerfile",
+          "gitignore",
+          "glimmer",
+          "go",
+          "hcl",
+          "helm",
+          "html",
+          "http",
+          "json",
+          "lua",
+          "luadoc",
+          "markdown",
+          "pem",
+          "prisma",
+          "python",
+          "scss",
+          "javascript",
+          "sql",
+          "terraform",
+          "tsx",
+          "typescript",
+          "vim",
+          "yaml",
+        },
+        indent = {
+          enable = true,
+        },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        autotag = {
+          enable = true,
+        },
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+          max_file_lines = nil,
+        },
+      })
+    end,
   },
 })
 
